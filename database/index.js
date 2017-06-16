@@ -6,5 +6,4 @@ var repoSchema = mongoose.Schema({
 });
 
 var Repo = mongoose.model('Repo', repoSchema);
-
 module.exports = Repo;
