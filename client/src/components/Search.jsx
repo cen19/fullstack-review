@@ -24,6 +24,8 @@ class Search extends React.Component {
     $.ajax({
       url: 'http://127.0.0.1:1128/repos/import',
       method: 'POST',
+      data: {username: `${this.state.term}`},
+      // contentType: 'application/json', // not needed until bodyParser.json works
       error: (err) => { console.log('error sending request'); },
       success: function(data) {
         console.log('*+*+ GETTING DATA +*+*');

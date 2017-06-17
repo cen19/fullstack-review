@@ -21,6 +21,12 @@ React events are named using camelCase, rather than lowercase.
 With JSX you pass a function as the event handler, rather than a string.
 
 
-[ ] Attach the client to the server
-  [ ] check if it's connected
+> Important to make sure the data-type/content-type communication between the communicating devices are the same. Computers can't automatically know what kind of information you are sending
+[x] Attach the client to the server
+  [x] check if it's connected
+[] make calls to the github api
+
 [ ] server calls api and stores it in MongoDB
+
+
+querystrings = ?xyz (things after the url, usually starts with '?')

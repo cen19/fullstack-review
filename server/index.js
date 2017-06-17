@@ -1,25 +1,22 @@
 var express = require('express');
 var request = require('request');
+var bodyParser = require('body-parser'); // use body-parse in a refactor
 
+// github api token f3525b0a15a45940d043ed9f44f426204c5773db
 var app = express();
 
 app.use(express.static(__dirname + '/../client/dist'));
+// app.use(bodyParser.json()); // 400 bad request at the moment
+app.use(bodyParser.urlencoded({extended: true}));
 
 app.post('/repos/import', function (req, res) {
-  // req.on(function(err, data) {
-  //   if (err) {
-  //     console.log(err);
-  //   } else {
-  //     console.log('hi to terminal');
-  //   }
-  // });
-  // console.log(`============= \n POST REQUEST: \n ${req.data} \n =============`);
-  request('http://www.google.com', function(err, response, body) {
+  console.log(`============= \n POST REQUEST RECEIVED: \n ${req.body.username} \n=============`);
+  request(`http://api.github.com/users/${req.body.username}/repos`, function(err, res, body) {
     console.log('error:', err); // Print the error if one occurred 
-    console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received 
+    console.log('statusCode:', res && res.statusCode); // Print the response status code if a response was received 
     console.log('body:', body); // Print the HTML for the Google homepage. 
   });
-  res.send(`Hello to client from Express Server \n here is your req: \n ${req}`);
+  res.send(`Hello to client from Express Server \n here is the thing you sent me: \n ${req.body.username}`);
 
 });
 
