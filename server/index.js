@@ -1,9 +1,9 @@
+var __ = require('./github.personal-token.js');
 var express = require('express');
 var request = require('request');
-var bodyParser = require('body-parser'); // use body-parse in a refactor
-var __ = require('./github.personal-token.js');
+var bodyParser = require('body-parser'); 
+var mongoose = require('mongoose');
 
-// github api token f3525b0a15a45940d043ed9f44f426204c5773db
 var app = express();
 
 app.use(express.static(__dirname + '/../client/dist'));
