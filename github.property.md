@@ -17,3 +17,8 @@ to use the schemas we make, we need to use a model
 
 React events are named using camelCase, rather than lowercase.
 With JSX you pass a function as the event handler, rather than a string.
+
+
+[ ] Attach the client to the server
+  [ ] check if it's connected
+[ ] server calls api and stores it in MongoDB

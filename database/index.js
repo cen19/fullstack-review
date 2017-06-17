@@ -4,7 +4,7 @@ mongoose.connect('mongodb://localhost/fetcher');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
-  // we're connected!
+  console.log('something here~~~~');
 });
 
 var repoSchema = mongoose.Schema({
@@ -18,4 +18,5 @@ var repoSchema = mongoose.Schema({
 });
 
 var Repo = mongoose.model('Repo', repoSchema);
+
 module.exports = Repo;
