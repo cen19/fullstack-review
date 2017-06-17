@@ -27,6 +27,7 @@ class Search extends React.Component {
       error: (err) => { console.log('error sending request'); },
       success: function(data) {
         console.log('*+*+ GETTING DATA +*+*');
+        console.log(data);
       }
     })
   }
