@@ -1,6 +1,7 @@
 var express = require('express');
 var request = require('request');
 var bodyParser = require('body-parser'); // use body-parse in a refactor
+var __ = require('./github.personal-token.js');
 
 // github api token f3525b0a15a45940d043ed9f44f426204c5773db
 var app = express();
@@ -14,11 +15,10 @@ app.post('/repos/import', function (req, res) {
   console.log(`============= \n POST REQUEST RECEIVED: \n ${req.body.username} \n=============`);
 
   var options = {
-    url: `https://api.github.com/users/${req.body.username}/repos?access_token=f3525b0a15a45940d043ed9f44f426204c5773db`,
-    headers: {
-      'User-Agent': 'cen19'
-      // authorization:
-    }
+    url: `https://api.github.com/users/${req.body.username}/repos?access_token=${__.token}`,
+    // headers: {
+    //   'User-Agent': 'cen19'
+    // }
   };
   request.get(options, function(err, res, body) {
     console.log(body);

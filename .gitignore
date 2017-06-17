@@ -1,3 +1,6 @@
 node_modules
 clent/dist/bundle.js
 database/data/db
+
+## key ##
+server/github.personal-token.js

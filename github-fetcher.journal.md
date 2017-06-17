@@ -30,3 +30,7 @@ With JSX you pass a function as the event handler, rather than a string.
 
 
 querystrings = ?xyz (things after the url, usually starts with '?')
+
+
+## require file path
+  ./some-file-name-here   for same folder
