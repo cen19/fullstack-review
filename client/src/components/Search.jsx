@@ -22,9 +22,7 @@ class Search extends React.Component {
   search() {
     this.props.onSearch(this.state.term);
     $.ajax({
-      url: 'http://127.0.0.1/repos/import',
-      port: '1128',
-      crossDomain: true,
+      url: 'http://127.0.0.1:1128/repos/import',
       method: 'POST',
       error: (err) => { console.log('error sending request'); },
       success: function(data) {
