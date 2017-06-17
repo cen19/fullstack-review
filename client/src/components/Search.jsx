@@ -1,4 +1,6 @@
 import React from 'react';
+import $ from 'jquery';
+
 
 class Search extends React.Component {
   constructor(props) {
@@ -6,7 +8,7 @@ class Search extends React.Component {
     this.state = {
       term: ''
     }
-    // need to bind it when the element is rendered in order to have acess
+    // need to bind it when the element is rendered in order to have access
     this.search = this.search.bind(this);
     this.onChange = this.onChange.bind(this);
   }
@@ -19,7 +21,16 @@ class Search extends React.Component {
 
   search() {
     this.props.onSearch(this.state.term);
-    
+    $.ajax({
+      url: 'http://127.0.0.1/repos/import',
+      port: '1128',
+      crossDomain: true,
+      method: 'POST',
+      error: (err) => { console.log('error sending request'); },
+      success: function(data) {
+        console.log('*+*+ GETTING DATA +*+*');
+      }
+    })
   }
 
   render() {

@@ -16,14 +16,15 @@ class App extends React.Component {
   search (term) {
     console.log(`${term} was searched`);
     // TODO
-    $.ajax({
-      method: 'POST',
-      url: ``,
-      success: function(data) {
-        console.log('***getting some data***');
-        console.log(data);
-      }
-    })
+    // this ajax request  is for connecting ot the server we create
+    // $.ajax({
+    //   method: 'POST',
+    //   url: ``,
+    //   success: function(data) {
+    //     console.log('***getting some data***');
+    //     console.log(data);
+    //   }
+    // })
   }
 
   render () {

@@ -12,6 +12,8 @@ id = github user id, use this for uniqueness
 
 to use the schemas we make, we need to use a model
 - pass the schema into the mongoose.model('name', schema);
+  > my information
+
 
 
 

@@ -11,7 +11,7 @@ var repoSchema = mongoose.Schema({
   // put properties from the callback here
   url: String,
   login: String,
-  avatarUrl: Image,
+  // avatarUrl: Image,
   htmlUrl: String,
   reposUrl: String,
   id: Number
