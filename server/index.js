@@ -10,11 +10,18 @@ app.use(express.static(__dirname + '/../client/dist'));
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.post('/repos/import', function (req, res) {
+
   console.log(`============= \n POST REQUEST RECEIVED: \n ${req.body.username} \n=============`);
-  request(`http://api.github.com/users/${req.body.username}/repos`, function(err, res, body) {
-    console.log('error:', err); // Print the error if one occurred 
-    console.log('statusCode:', res && res.statusCode); // Print the response status code if a response was received 
-    console.log('body:', body); // Print the HTML for the Google homepage. 
+
+  var options = {
+    url: `https://api.github.com/users/${req.body.username}/repos?access_token=f3525b0a15a45940d043ed9f44f426204c5773db`,
+    headers: {
+      'User-Agent': 'cen19'
+      // authorization:
+    }
+  };
+  request.get(options, function(err, res, body) {
+    console.log(body);
   });
   res.send(`Hello to client from Express Server \n here is the thing you sent me: \n ${req.body.username}`);
 
