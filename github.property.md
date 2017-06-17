@@ -12,3 +12,8 @@ id = github user id, use this for uniqueness
 
 to use the schemas we make, we need to use a model
 - pass the schema into the mongoose.model('name', schema);
+
+
+
+React events are named using camelCase, rather than lowercase.
+With JSX you pass a function as the event handler, rather than a string.
