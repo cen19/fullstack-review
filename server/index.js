@@ -2,6 +2,7 @@ var express = require('express');
 var request = require('request');
 var bodyParser = require('body-parser'); 
 var token = require('./github.personal-token.js');
+var Repo = require('../database/index.js');
 // var mongoose = require('mongoose');
 
 var app = express();
@@ -25,9 +26,11 @@ app.post('/repos/import', function (req, res) {
     if (err) {
       console.log(err);
     }
-    console.log(body);
+    // body.forEach(function(repo) {
+
+    // });
   });
-  res.send(`Hello to client from Express Server \n here is the thing you sent me: \n ${req.body.username}`);
+  res.send(`Hello to client from Express Server \n here is the thing you sent me: \n ${req.body.username} \nAnd this is the github response \n${body}`);
 
 });
 

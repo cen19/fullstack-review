@@ -29,14 +29,18 @@ to use the schemas we make, we need to use a model
 
 [x] Attach the client to the server
   [x] check if it's connected by requesting
+
+- Can use bodyParser library to help parse the body that was received with the request
+[x] ensure the body parser receives the proper data type
 [x] make calls to the github api
 [x] be sure to include headers-- User Agent
-[x] hide token for auth
-
+[x] hide authentication code
 
 
 # Third task (server[express] => mongoose[orm, helps us manage the database])
 
+[] Set up connection 
+  [] what url/uri to connect to?
 
 
 
