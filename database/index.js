@@ -1,26 +1,25 @@
 var mongoose = require('mongoose');
+// other requirements?
+
 
 mongoose.connect('mongodb://localhost/fetcher');
+
 var db = mongoose.connection;
+// log an error if it exists
 db.on('error', console.error.bind(console, 'connection error:'));
+// otherwise, do the following
 db.once('open', function() {
   console.log('mongoose connected');
+  // declare schema
   var repoSchema = mongoose.Schema({
-    // put properties from the callback here
     name: String,
     id: Number
   });
+  // compile the schema into a model
+
 });
 
-var repoSchema = mongoose.Schema({
-  // put properties from the callback here
-  url: String,
-  login: String,
-  // avatarUrl: Image,
-  htmlUrl: String,
-  reposUrl: String,
-  id: Number
-});
+
 
 var Repo = mongoose.model('Repo', repoSchema);
 

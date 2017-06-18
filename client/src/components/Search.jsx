@@ -19,7 +19,7 @@ class Search extends React.Component {
     });
   }
 
-  search() {
+  search() { // sends a request 'GET' to our express servers
     this.props.onSearch(this.state.term);
     $.ajax({
       url: 'http://127.0.0.1:1128/repos/import',

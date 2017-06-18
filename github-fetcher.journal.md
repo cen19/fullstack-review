@@ -46,6 +46,10 @@ to use the schemas we make, we need to use a model
 [] Create mongoose schema to help store the incoming repos
    .. start with just one property
 
+> How does the schema get access to the information the API sends back?
+ - Either require the data sent back in the index of database
+   - or require the database where the express server is making the calls
+
 - Connection to from mongoose to mongo is setup and we can tell because of the console log statement that logs in the -server-terminal
 
 
