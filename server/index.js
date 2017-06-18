@@ -3,7 +3,7 @@ var request = require('request');
 var bodyParser = require('body-parser'); 
 var token = require('./github.personal-token.js');
 var Repo = require('../database/index.js');
-// var mongoose = require('mongoose');
+
 
 var app = express();
 
@@ -12,7 +12,7 @@ app.use(express.static(__dirname + '/../client/dist'));
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.post('/repos/import', function (req, res) {
-
+  var postContext = this;
   console.log(`============= \n POST REQUEST RECEIVED: \n ${req.body.username} \n=============`);
 
   var options = {
@@ -26,11 +26,9 @@ app.post('/repos/import', function (req, res) {
     if (err) {
       console.log(err);
     }
-    // body.forEach(function(repo) {
-
-    // });
+    console.log(body);
   });
-  res.send(`Hello to client from Express Server \n here is the thing you sent me: \n ${req.body.username} \nAnd this is the github response \n${body}`);
+  res.send(`Hello to client from Express Server \n here is the thing you sent me: \n ${req.body.username}`);
 
 });
 

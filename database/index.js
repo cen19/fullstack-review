@@ -1,13 +1,16 @@
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/fetcher', function(error) {
-  if (error) {
-    console.log(error);
-  }
-  console.log('connection to mongoDB successful');
-});
-
+mongoose.connect('mongodb://localhost/fetcher');
 var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log('mongoose connected');
+  var repoSchema = mongoose.Schema({
+    // put properties from the callback here
+    name: String,
+    id: Number
+  });
+});
 
 var repoSchema = mongoose.Schema({
   // put properties from the callback here

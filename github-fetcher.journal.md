@@ -38,12 +38,15 @@ to use the schemas we make, we need to use a model
 
 
 # Third task (server[express] => mongoose[orm, helps us manage the database])
+-- Mongoose is syntactical, figure out the wyas it is being used
+
+[x] Mongoose.connect is connecting to the DB, upon successful connection 
+    It deplays a specific message based on error or a connection
+
+[] Create mongoose schema to help store the incoming repos
+   .. start with just one property
 
 - Connection to from mongoose to mongo is setup and we can tell because of the console log statement that logs in the -server-terminal
-  
-
-
-
 
 
 ### require file path

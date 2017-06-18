@@ -26,7 +26,7 @@ class Search extends React.Component {
       method: 'POST',
       data: {username: `${this.state.term}`},
       // contentType: 'application/json', // not needed until bodyParser.json works
-      error: (err) => { console.log('error sending request'); },
+      error: (err) => { console.log('error sending request to express server'); },
       success: function(data) {
         console.log('*+*+ GETTING DATA +*+*');
         console.log(data);
