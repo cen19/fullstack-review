@@ -39,8 +39,8 @@ to use the schemas we make, we need to use a model
 
 # Third task (server[express] => mongoose[orm, helps us manage the database])
 
-[] Set up connection 
-  [] what url/uri to connect to?
+- Connection to from mongoose to mongo is setup and we can tell because of the console log statement that logs in the -server-terminal
+  
 
 
 
