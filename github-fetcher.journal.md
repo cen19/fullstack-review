@@ -47,10 +47,17 @@ to use the schemas we make, we need to use a model
    .. start with just one property
 
 > How does the schema get access to the information the API sends back?
- - ?Either require the data sent back in the index of database?
-   - ?or require the database where the express server is making the calls?
+ - ? Either require the data sent back in the index of database?
+   - ? or require the database where the express server is making the calls?
 [] Find a way to get access to the data we just stored in the MongoDB
 
+1. On page loads
+.. I need to do a get request to the express server
+2. on sending get request
+.. express server will get the data from the mongodatabase
+.. then send the data back to the cient
+3. Client will then push that data into the this.setState(repos)
+4. Render the repos(should alreayd be written)
 
   - Remember mongoose.query helpers 
 

@@ -1,0 +1,1 @@
+Why do we have two search methods, one in the search component and one in the index

@@ -1,6 +1,4 @@
 var mongoose = require('mongoose');
-// other requirements?
-
 
 mongoose.connect('mongodb://localhost/fetcher');
 
@@ -10,11 +8,6 @@ db.on('error', console.error.bind(console, 'connection error:'));
 // otherwise, do the following once the connection is open
 db.once('open', function() {
   console.log('mongoose connected');
-  // declare schema
-
-  // compile the schema into a model
-
-
 });
 
 var repoSchema = mongoose.Schema({
@@ -22,7 +15,9 @@ var repoSchema = mongoose.Schema({
   id: Number
 });
 
-
 var Repo = mongoose.model('Repo', repoSchema);
 
 module.exports = Repo;
+
+
+// Is this file only for exporting so that we can make repos in other files?
