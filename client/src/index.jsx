@@ -15,10 +15,18 @@ class App extends React.Component {
 
   search (term) {
     console.log(`${term} was searched`);
-    // todo
+    // todo - new position for the POST
 
-    // putting the get request here for now
-    $  
+    $.ajax({
+      url: 'http://127.0.0.1:1128/repos/import',
+      method: 'POST',
+      data: {username: `${term}`},
+      // contentType: 'application/json', // not needed until bodyParser.json works
+      error: (err) => { console.log('error sending request to express server'); },
+      success: function(data) {
+        console.log(data);
+      }
+    })
   }
 
   render () {
