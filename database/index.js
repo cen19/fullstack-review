@@ -17,15 +17,12 @@ db.once('open', function() {
 
 });
 
-
-
 var repoSchema = mongoose.Schema({
   name: String,
   id: Number
 });
 
+
 var Repo = mongoose.model('Repo', repoSchema);
-
-
 
 module.exports = Repo;

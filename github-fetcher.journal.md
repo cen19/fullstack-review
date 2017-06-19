@@ -43,12 +43,14 @@ to use the schemas we make, we need to use a model
 [x] Mongoose.connect is connecting to the DB, upon successful connection 
     It deplays a specific message based on error or a connection
 
-[] Create mongoose schema to help store the incoming repos
+[x] Create mongoose schema to help store the incoming repos
    .. start with just one property
 
 > How does the schema get access to the information the API sends back?
- - Either require the data sent back in the index of database
-   - or require the database where the express server is making the calls
+ - ?Either require the data sent back in the index of database?
+   - ?or require the database where the express server is making the calls?
+[] Find a way to get access to the data we just stored in the MongoDB
+
 
   - Remember mongoose.query helpers 
 

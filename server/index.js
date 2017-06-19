@@ -13,9 +13,9 @@ app.use(express.static(__dirname + '/../client/dist'));
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.post('/repos/import', function (req, res) {
-  var postContext = this;
+
   console.log(`============= \n POST REQUEST RECEIVED: \n ${req.body.username} \n=============`);
-  var gitBody = '';
+
   var options = {
     url: `https://api.github.com/users/${req.body.username}/repos?access_token=${token}`,
     headers: {
@@ -30,21 +30,27 @@ app.post('/repos/import', function (req, res) {
 
     if (body) {
       console.log('body received');
-
-      JSON.parse(body).forEach(function(repo, idx) {
-        console.log(idx);
-        idx = new Repo({
-          name: body.name,
-          id: body.id
+      if (Array.isArray(JSON.parse(body))) {
+         // var formatting JSON.parse(body);
+        JSON.parse(body).forEach(function(repo, idx) {
+          console.log(idx);
+          idx = new Repo({
+            name: body.name,
+            id: body.id
+          });
+          idx.save(function(err) {
+            if (err) {
+              console.log(`error message: ${err}`);
+            } else {
+              console.log(`saved repo #${idx}`);
+            }
+          });
         });
-        idx.save(function(err) {
-          if (err) {
-            console.log(`error message: ${err}`);
-          } else {
-            console.log(`saved repo #${idx}`);
-          }
-        });
-      });
+      } else {
+        // the body returned wasn't a proper repo
+      }
+      
+     
     }
   });
   // response back to the client
@@ -54,7 +60,14 @@ app.post('/repos/import', function (req, res) {
 });
 
 app.get('/repos', function (req, res) {
-  // TODO
+  // next time they load the page, get the data from the database
+  Repo.find(function(err, repos) {
+    if (err) {
+      console.error(err);
+    } else {
+      console.log(repos);
+    }
+  });
 });
 
 var port = 1128;
