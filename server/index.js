@@ -5,6 +5,7 @@ var token = require('./github.personal-token.js');
 var Repo = require('../database/index.js');
 
 
+
 var app = express();
 
 app.use(express.static(__dirname + '/../client/dist'));
@@ -14,11 +15,11 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.post('/repos/import', function (req, res) {
   var postContext = this;
   console.log(`============= \n POST REQUEST RECEIVED: \n ${req.body.username} \n=============`);
-
+  var gitBody = '';
   var options = {
     url: `https://api.github.com/users/${req.body.username}/repos?access_token=${token}`,
     headers: {
-      'User-Agent': 'cen19'
+      'User-Agent': 'cen19' // github Requires a user-agent header attached with every request
     }
   };
   request.get(options, function(err, res, body) {
@@ -26,10 +27,29 @@ app.post('/repos/import', function (req, res) {
     if (err) {
       console.log(err);
     }
-    console.log(body);
+
+    if (body) {
+      console.log('body received');
+
+      JSON.parse(body).forEach(function(repo, idx) {
+        console.log(idx);
+        idx = new Repo({
+          name: body.name,
+          id: body.id
+        });
+        idx.save(function(err) {
+          if (err) {
+            console.log(`error message: ${err}`);
+          } else {
+            console.log(`saved repo #${idx}`);
+          }
+        });
+      });
+    }
   });
   // response back to the client
   res.send(`Hello to client from Express Server \n here is the thing you sent me: \n ${req.body.username}`);
+
 
 });
 
